@@ -14,7 +14,7 @@ from winston_client import speech
 class Command(BaseCommand):
     help = 'Check for anything to say'
 
-    token = '32c9bd7fc2d050e8b2b8194aa2a29fdbf2301ca7'
+    token = '498a5aadb0955323a0eeb012d77abcd4ab64d0c9'
     # not a real secret calm down
     base_url = 'http://localhost:8000'
     base_path = '/api/events'
@@ -48,6 +48,7 @@ class Command(BaseCommand):
             if dt <= datetime.now():
                 print "Saying '%s'" % (event['message'])
                 # system('say -v Daniel %s' % event['message'])
+                s.chime()
                 s.say(event['message'])
                 self.mark_as_said(event)
         print "Done!"
