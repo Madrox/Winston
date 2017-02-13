@@ -49,6 +49,7 @@ class Command(BaseCommand):
             if dt <= make_aware(datetime.now()):
                 print "Saying '%s'" % (event['message'])
                 # system('say -v Daniel %s' % event['message'])
+                s.make("<speak>%s</speak>" % (event['message']))
                 s.chime()
                 s.say("<speak>%s</speak>" % (event['message']))
                 self.mark_as_said(event)
