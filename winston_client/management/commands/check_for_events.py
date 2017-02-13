@@ -6,6 +6,7 @@ from datetime import datetime
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 from django.utils.dateparse import parse_datetime
+from django.utils.timezone import make_aware
 from traceback import print_exc
 
 from winston_client import speech
@@ -45,7 +46,7 @@ class Command(BaseCommand):
         events = json.loads(r.text)
         for event in events:
             dt = parse_datetime(event['scheduled_time'])
-            if dt <= datetime.now():
+            if dt <= make_aware(datetime.now()):
                 print "Saying '%s'" % (event['message'])
                 # system('say -v Daniel %s' % event['message'])
                 s.chime()
