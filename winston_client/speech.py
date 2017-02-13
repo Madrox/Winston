@@ -23,7 +23,10 @@ class Speech(object):
         ))
         return fn
 
+    def chime(self):
+        system("omxplayer %schime.mp3" % (self.file_path))
+
     def say(self, text):
         fn = self.make(text)
-        system("audioplay %s%s" % (self.file_path, fn))
+        system("omxplayer %s%s" % (self.file_path, fn))
 
