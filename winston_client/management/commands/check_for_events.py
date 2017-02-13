@@ -50,6 +50,6 @@ class Command(BaseCommand):
                 print "Saying '%s'" % (event['message'])
                 # system('say -v Daniel %s' % event['message'])
                 s.chime()
-                s.say(event['message'])
+                s.say("<speak>%s</speak>" % (event['message']))
                 self.mark_as_said(event)
         print "Done!"
