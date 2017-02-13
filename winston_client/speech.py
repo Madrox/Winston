@@ -24,9 +24,9 @@ class Speech(object):
         return fn
 
     def chime(self):
-        system("omxplayer %schime.mp3" % (self.file_path))
+        system("mplayer -ao alsa -really-quiet -noconsolecontrols %schime.mp3" % (self.file_path))
 
     def say(self, text):
         fn = self.make(text)
-        system("omxplayer %s%s" % (self.file_path, fn))
+        system("mplayer -ao alsa -really-quiet -noconsolecontrols %s%s" % (self.file_path, fn))
 
