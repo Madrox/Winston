@@ -37,7 +37,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         s = speech.Speech()
-
         r = requests.get(
             self.base_url+self.base_path,
             headers={
