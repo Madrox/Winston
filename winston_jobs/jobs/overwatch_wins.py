@@ -16,7 +16,7 @@ class OverwatchWins(Job):
             wins = 0
         data = json.loads(requests.get(
             'https://owapi.net/api/v3/u/itmightbedave/blob?platform=psn'
-        ))
+        ).text)
         new_wins = data['any']['stats']['competitive']['overall_stats']['wins']
         new_wins += data['any']['stats']['quickplay']['overall_stats']['wins']
 
