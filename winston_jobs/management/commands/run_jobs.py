@@ -30,6 +30,7 @@ class Command(BaseCommand):
                 submodule = getattr(module, member)
                 try:
                     if issubclass(submodule, Job) and submodule is not Job:
+                        print member
                         job = submodule()
                         job.run()
                 except TypeError:

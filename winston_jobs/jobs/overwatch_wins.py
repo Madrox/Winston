@@ -14,6 +14,7 @@ class OverwatchWins(Job):
         wins = self.val("wins")
         if wins is None:
             wins = 0
+        print "Old wins at %s" % (wins)
         UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
         data = json.loads(requests.get(
             'https://owapi.net/api/v3/u/itmightbedave/blob?platform=psn',
@@ -24,6 +25,7 @@ class OverwatchWins(Job):
         new_wins = data['any']['stats']['competitive']['overall_stats']['wins']
         new_wins += data['any']['stats']['quickplay']['overall_stats']['wins']
 
+        print "New wins at %s" % (new_wins)
         if new_wins > wins:
             self.make_event("Congratulations on the Overwatch win!")
         self.set_val("wins", new_wins)
