@@ -28,6 +28,9 @@ class Command(BaseCommand):
                 if member.startswith("__"):
                     continue
                 submodule = getattr(module, member)
-                if issubclass(submodule, Job) and submodule is not Job:
-                    job = submodule()
-                    job.run()
+                try:
+                    if issubclass(submodule, Job) and submodule is not Job:
+                        job = submodule()
+                        job.run()
+                except TypeError:
+                    pass
