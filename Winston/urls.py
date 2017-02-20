@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
     url(r'^api/', include('winston_api.urls')),
     url(r'^admin/', admin.site.urls),
-]
+] + staticfiles_urlpatterns()
