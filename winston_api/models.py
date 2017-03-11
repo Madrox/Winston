@@ -14,6 +14,7 @@ class Event(models.Model):
     source = models.ForeignKey(Source)
     message = models.TextField()
     scheduled_time = models.DateTimeField(null=True, blank=True)
+    speak = models.BooleanField(default=False)
     announced = models.BooleanField(default=False)
 
     def __unicode__(self):
