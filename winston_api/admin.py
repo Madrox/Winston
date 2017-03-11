@@ -15,4 +15,4 @@ for model in app.models.values():
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = (
-        'source', 'message', 'scheduled_time', 'speak', 'announced')
+        'message', 'scheduled_time', 'speak', 'announced')
