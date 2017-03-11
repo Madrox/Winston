@@ -1,6 +1,7 @@
 import hashlib
 from os import system, path
 
+
 class Speech(object):
     def __init__(self):
         self.file_path = path.dirname(path.realpath(__file__)) + "/static/"
@@ -24,9 +25,10 @@ class Speech(object):
         return fn
 
     def chime(self):
-        system("mplayer -ao alsa -really-quiet -noconsolecontrols %schime.mp3" % (self.file_path))
+        chime = "mplayer -ao alsa -really-quiet -noconsolecontrols %schime.mp3"
+        system(chime % (self.file_path))
 
     def say(self, text):
         fn = self.make(text)
-        system("mplayer -ao alsa -really-quiet -noconsolecontrols %s%s" % (self.file_path, fn))
-
+        speech = "mplayer -ao alsa -really-quiet -noconsolecontrols %s%s"
+        system(speech % (self.file_path, fn))

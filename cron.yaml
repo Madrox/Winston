@@ -1,0 +1,4 @@
+cron:
+- description: Placeholder
+  url: /jobs/stuff
+  schedule: every 500 hours

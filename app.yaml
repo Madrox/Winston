@@ -1,0 +1,47 @@
+application: winston-161208
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+instance_class: F4
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: Winston.wsgi.application
+  secure: always
+
+
+
+libraries:
+- name: MySQLdb
+  version: "latest"
+
+- name: ssl
+  version: latest
+
+- name: pycrypto
+  version: "2.6"
+
+builtins:
+- deferred: on
+- appstats: on
+
+skip_files:
+- ^venv/.*$
+- ^env/.*$
+- ^ENV/.*$
+- ^venv/.*$
+- ^htmlcov/.*$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*~$
+- ^README\..*
+- \.gitignore
+- ^\.git/.*
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'Winston.settings'

@@ -65,5 +65,8 @@ lib/
 
 tmp/
 .DS_Store
-Labs/ssl
+Winston/ssl
+static/
 stories.html
+
+cloud_sql_proxy

@@ -23,9 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd4!rm4$#eteg#h1(+ouhn_ifuh9@kacu%w*&-teon(r3x81y)0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['raspberrypi', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'raspberrypi',
+    'localhost',
+    '127.0.0.1',
+    'winston-161208.appspot.com',
+]
 
 
 # Application definition
@@ -78,12 +83,25 @@ WSGI_APPLICATION = 'Winston.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+DATABASES = {}
+if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/winston-161208:us-central1:winston-db',
+            'NAME': 'winston',
+            'USER': 'root',
+            'PASSWORD': 'rootpassword'
+        }
     }
-}
+else:
+    DEBUG = True
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
@@ -137,3 +155,14 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 }
+
+WINSTON_API_TOKEN = ''
+WINSTON_API_DOMAIN = 'http://localhost:8000'
+
+LAMETRIC_CLIENT_ID = ''
+LAMETRIC_SECRET = ''
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
