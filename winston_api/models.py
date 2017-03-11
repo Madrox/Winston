@@ -11,5 +11,4 @@ class Event(models.Model):
     announced = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return "[%s] %s - %s" % (
-                                self.source, self.scheduled_time, self.message)
+        return "[%s] %s" % (self.scheduled_time, self.message)

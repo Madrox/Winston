@@ -9,7 +9,7 @@ class Job(object):
 
     def make_event(self, msg, when=now()):
         Event.objects.create(
-            source=self._type(),
+            # source=self._type(),
             message=msg,
             scheduled_time=localtime(when)
         )
