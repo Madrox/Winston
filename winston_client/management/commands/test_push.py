@@ -16,6 +16,10 @@ class Command(BaseCommand):
     client_id = settings.LAMETRIC_CLIENT_ID
     secret = settings.LAMETRIC_SECRET
 
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--msg', nargs='?', type=str, default='Hello world!')
+
     def handle(self, *args, **options):
         # set your LaMetric API credentials here!
         # create an instance of the LaMetricManager
@@ -31,7 +35,7 @@ class Command(BaseCommand):
         lmn.set_device(devices[0])
 
         # prepare a simple frame with an icon and some text
-        sf = SimpleFrame("i210", "Hello World!")
+        sf = SimpleFrame("i210", options['msg'])
 
         # prepare the model that will be send as notification
         model = Model(frames=[sf])

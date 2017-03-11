@@ -64,11 +64,11 @@ class Command(BaseCommand):
         print r.text
 
     def push_speech(self, msg):
-        print "Saying '%s'" % (event['message'])
+        print "Saying '%s'" % (msg)
         # system('say -v Daniel %s' % event['message'])
-        s.make("<speak>%s</speak>" % (event['message']))
+        s.make("<speak>%s</speak>" % (msg))
         s.chime()
-        s.say("<speak>%s</speak>" % (event['message']))
+        s.say("<speak>%s</speak>" % (msg))
 
     def handle(self, *args, **options):
         s = speech.Speech()
