@@ -7,6 +7,12 @@ from .models import *
 app = apps.get_app_config('winston_api')
 for model in app.models.values():
     name = model.__name__
-    if name in ('Tag', 'Ticket'):
+    if name in ('Event', 'Ticket'):
         continue
     admin.site.register(model)
+
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = (
+        'source', 'message', 'scheduled_time', 'speak', 'announced')

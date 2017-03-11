@@ -14,8 +14,3 @@ class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.filter(announced=False)
     serializer_class = EventSerializer
     permission_classes = (AllowAny, )
-
-
-class SourceViewSet(viewsets.ModelViewSet):
-    queryset = Source.objects.all()
-    serializer_class = SourceSerializer

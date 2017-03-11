@@ -22,7 +22,6 @@ from .views import *
 
 router = routers.DefaultRouter()
 router.register(r'events', EventViewSet)
-router.register(r'source', SourceViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
