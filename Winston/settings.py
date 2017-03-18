@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'winston-161208.appspot.com',
     '813.d8a.me',
+    'apt.d8a.me',
 ]
 
 
