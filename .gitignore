@@ -64,8 +64,10 @@ db.sqlite3
 lib/
 
 tmp/
+temp/
 .DS_Store
 Winston/ssl
+Winston/secrets
 static/
 stories.html
 

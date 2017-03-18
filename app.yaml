@@ -3,7 +3,6 @@ version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
-instance_class: F4
 
 handlers:
 - url: /static
@@ -11,7 +10,7 @@ handlers:
 
 - url: /.*
   script: Winston.wsgi.application
-  secure: always
+  secure: never
 
 
 

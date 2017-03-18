@@ -1,4 +1,4 @@
 cron:
-- description: Placeholder
-  url: /jobs/stuff
-  schedule: every 500 hours
+- description: Check for packages
+  url: /jobs/package_search
+  schedule: every 6 hours

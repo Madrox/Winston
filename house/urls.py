@@ -17,9 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from .views import *
 
-urlpatterns = staticfiles_urlpatterns() + [
-    url(r'^api/', include('winston_api.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('house.urls')),
+urlpatterns = [
+    url(
+        r'^jobs/package_search$',
+        PackageSearch.as_view(),
+        name='package-search'),
+    url(r'^packages$', PackageView.as_view(), name='packages'),
+    url(r'^$', HomeView.as_view(), name='home'),
+
 ]

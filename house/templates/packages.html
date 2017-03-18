@@ -1,0 +1,5 @@
+{% for package in object_list %}
+{% if not package.picked_up %}
+<li>{{package}}
+{% endif %}
+{% endfor %}

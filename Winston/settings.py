@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'winston-161208.appspot.com',
+    '813.d8a.me',
 ]
 
 
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'winston_api',
     'winston_client',
     'winston_jobs',
+    'house',
 ]
 
 MIDDLEWARE = [
@@ -161,6 +163,8 @@ WINSTON_API_DOMAIN = 'http://localhost:8000'
 
 LAMETRIC_CLIENT_ID = ''
 LAMETRIC_SECRET = ''
+
+CREDENTIALS_DIR = os.path.join(BASE_DIR, 'Winston/secrets')
 
 try:
     from .local_settings import *

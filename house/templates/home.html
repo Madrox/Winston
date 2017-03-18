@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}813{% endblock %}
+
+{% block body %}
+<h1 class="hero-title">Welcome Home!</h1>
+{% if view.packages > 0 %}
+<p class="lead"><i class="fa fa-envelope-o" aria-hidden="true"></i> There {{view.packages|pluralize:"is,are"}} <strong>{{view.packages}} package{{view.packages|pluralize}}</strong> waiting.
+{% else %}
+<p class="lead"><i class="fa fa-envelope-o" aria-hidden="true"></i> There are <strong>no packages</strong> waiting.
+{% endif %}
+{% endblock %}
