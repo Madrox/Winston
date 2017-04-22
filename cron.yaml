@@ -1,4 +1,1 @@
 cron:
-- description: Check for packages
-  url: /jobs/package_search
-  schedule: every 6 hours
