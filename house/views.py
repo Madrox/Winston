@@ -13,11 +13,11 @@ class PackageSearch(View):
         print "Querying for packages..."
         q = "amissionbay@avalonbay.com package"
         for message in Gmail().query(q):
-            p, c = Package.objects.get_or_create(
+            p, created = Package.objects.get_or_create(
                 message_id=message['id'],
                 thread_id=message['threadId']
             )
-            if not c:
+            if created:
                 print "New package found! Making task..."
                 quick_add_task('Pick up package #Errands', note=p.message_id)
                 print "Tasking complete."
