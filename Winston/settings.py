@@ -166,6 +166,7 @@ LAMETRIC_CLIENT_ID = ''
 LAMETRIC_SECRET = ''
 
 TODOIST_TOKEN = ''
+HOME_ADDRESS = ''
 
 CREDENTIALS_DIR = os.path.join(BASE_DIR, 'Winston/secrets')
 

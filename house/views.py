@@ -1,4 +1,5 @@
 import json
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView, View
@@ -19,7 +20,10 @@ class PackageSearch(View):
             )
             if created:
                 print "New package found! Making task..."
-                quick_add_task('Pick up package #Errands', note=p.message_id)
+                quick_add_task(
+                    'Pick up package #Errands',
+                    note=p.message_id,
+                    reminder=settings.HOME_ADDRESS)
                 print "Tasking complete."
 
     def get(self, request, *args, **kwargs):
