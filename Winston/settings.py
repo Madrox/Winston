@@ -165,6 +165,8 @@ WINSTON_API_DOMAIN = 'http://localhost:8000'
 LAMETRIC_CLIENT_ID = ''
 LAMETRIC_SECRET = ''
 
+TODOIST_TOKEN = ''
+
 CREDENTIALS_DIR = os.path.join(BASE_DIR, 'Winston/secrets')
 
 try:
