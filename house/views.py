@@ -19,7 +19,7 @@ class PackageSearch(View):
             )
             if not c:
                 print "New package found! Making task..."
-                quick_add_task('Pick up package', note=p.message_id)
+                quick_add_task('Pick up package #Errands', note=p.message_id)
                 print "Tasking complete."
 
     def get(self, request, *args, **kwargs):
