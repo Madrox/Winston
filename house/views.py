@@ -10,6 +10,7 @@ from .models import *
 
 class PackageSearch(View):
     def as_job(self):
+        print "Querying for packages..."
         q = "amissionbay@avalonbay.com package"
         for message in Gmail().query(q):
             p, c = Package.objects.get_or_create(
@@ -17,8 +18,9 @@ class PackageSearch(View):
                 thread_id=message['threadId']
             )
             if not c:
+                print "New package found! Making task..."
                 quick_add_task('Pick up package', note=message_id)
-
+                print "Tasking complete."
 
     def get(self, request, *args, **kwargs):
         self.as_job()
